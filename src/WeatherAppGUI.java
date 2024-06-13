@@ -63,6 +63,19 @@ public class WeatherAppGUI extends JFrame {
         add(humidityImage);
         //text
         // YOU CAN PLACE HTML CODE WITHIN SWING COMPONENTS
+        JLabel humidityText = new JLabel("<html><b>Humidity</b> 100%</html>");
+        humidityText.setBounds(90,500,85,55);
+        humidityText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(humidityText);
+
+        // wind speed
+        JLabel windSpeedImage = new JLabel(loadImage("src/assets/img/windspeed.png"));
+        windSpeedImage.setBounds(220,500,74,66);
+        add(windSpeedImage);
+        JLabel windSpeedText = new JLabel("<html><b>Wind Speed</b> 15km/h</html>");
+        windSpeedText.setBounds(310,500,85,55);
+        windSpeedText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(windSpeedText);
 
     }
 
