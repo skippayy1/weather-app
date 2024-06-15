@@ -66,6 +66,23 @@ public class WeatherApp {
             JSONArray weathercode =  (JSONArray) hourly.get("weathercode");
             String weatherCondition = convertWeatherCode((long) weathercode.get(index));
 
+            // get humidity
+            JSONArray relativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
+            long humidity = (long) relativeHumidity.get(index);
+
+            // get windspeed
+            JSONArray windspeedData = (JSONArray) hourly.get("wind_speed_10m");
+            double windspeed = (double) windspeedData.get(index);
+
+            // build the weather json data object to be accessed in the frontend
+            JSONObject weatherData = new JSONObject();
+            weatherData.put("temperature", temperature);
+            weatherData.put("weather_condition", weatherCondition);
+            weatherData.put("humidity", humidity);
+            weatherData.put("windspeed", windspeed);
+
+            return weatherData;
+
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -168,6 +185,11 @@ public class WeatherApp {
             weatherCondition = "Clear";
         }else if(weathercode <= 3L && weathercode > 0L){
             weatherCondition = "Cloudy";
-        }else if((weathercode >= 51L && weathercode < 67L) ){}
+        }else if((weathercode >= 51L && weathercode < 67L) || (weathercode >= 80L && weathercode < 99L)){
+            weatherCondition = "Rain";
+        }else if(weathercode >= 71L && weathercode <= 77L){
+            weatherCondition = "Snow";
+        }
+        return weatherCondition;
     }
 }
