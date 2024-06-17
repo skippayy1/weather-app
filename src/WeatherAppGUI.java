@@ -102,16 +102,16 @@ public class WeatherAppGUI extends JFrame {
                 // depending on the condition, we will update the weather image that corresponds with the condition
                 switch (weatherCondition) {
                     case "Clear":
-                        weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
+                        weatherConditionImage.setIcon(loadImage("src/assets/img/clear.png"));
                         break;
                     case "Cloudy":
-                        weatherConditionImage.setIcon(loadImage("src/assets/cloudy.png"));
+                        weatherConditionImage.setIcon(loadImage("src/assets/img/cloudy.png"));
                         break;
                     case "Rain":
-                        weatherConditionImage.setIcon(loadImage("src/assets/rain.png"));
+                        weatherConditionImage.setIcon(loadImage("src/assets/img/rain.png"));
                         break;
                     case "Snow":
-                        weatherConditionImage.setIcon(loadImage("src/assets/snow.png"));
+                        weatherConditionImage.setIcon(loadImage("src/assets/img/snow.png"));
                         break;
                 }
 

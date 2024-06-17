@@ -33,7 +33,7 @@ public class WeatherApp {
 
             // check for response status
             // 200 - means that the the connection was a success
-            if(conn.getResponseCode() == 200){
+            if(conn.getResponseCode() != 200){
                 System.out.println("Error: could not connect to an api");
                 return null;
             }
@@ -63,11 +63,11 @@ public class WeatherApp {
             JSONArray temperatureData = (JSONArray) hourly.get("temperature_2m");
             double temperature = (double) temperatureData.get(index);
 
-            JSONArray weathercode =  (JSONArray) hourly.get("weathercode");
+            JSONArray weathercode =  (JSONArray) hourly.get("weather_code");
             String weatherCondition = convertWeatherCode((long) weathercode.get(index));
 
             // get humidity
-            JSONArray relativeHumidity = (JSONArray) hourly.get("relativehumidity_2m");
+            JSONArray relativeHumidity = (JSONArray) hourly.get("relative_humidity_2m");
             long humidity = (long) relativeHumidity.get(index);
 
             // get windspeed
