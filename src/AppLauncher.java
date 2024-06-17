@@ -2,12 +2,9 @@ import javax.swing.*;
 
 public class AppLauncher {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            // display new weather app gui
-            new WeatherAppGUI().setVisible(true);
-
+        // display new weather app gui
 //                System.out.println(WeatherApp.getLocationData("Tokyo"));
 //            System.out.println(WeatherApp.getCurrentTime());
-        });
+        SwingUtilities.invokeLater(() -> new WeatherAppGUI().setVisible(true));
     }
 }
